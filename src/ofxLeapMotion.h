@@ -23,6 +23,7 @@ class ofxLeapMotionSimpleHand{
     
     ofPoint handPos; 
     ofPoint handNormal;
+    ofPoint handSpeed;
     
     void debugDraw(){
         ofPushStyle();
@@ -280,6 +281,7 @@ class ofxLeapMotion : public Listener{
             
                 curHand.handPos     = getMappedofPoint( leapHands[i].palmPosition() );
                 curHand.handNormal  = getofPoint( leapHands[i].palmNormal() );
+                curHand.handSpeed   = getofPoint( leapHands[i].palmVelocity() );
 
                 for(int j = 0; j < leapHands[i].fingers().count(); j++){
                     const Finger & finger = leapHands[i].fingers()[j];
